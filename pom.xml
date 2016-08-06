@@ -33,7 +33,7 @@
         <dep.maven-checkstyle-plugin.version>2.12.1</dep.maven-checkstyle-plugin.version>
         <dep.findbugs-maven-plugin.version>2.5.1</dep.findbugs-maven-plugin.version>
         <!-- se -->
-        <kochiu.module.se>1.1.7</kochiu.module.se>
+        <kochiu.module.se>1.2.0</kochiu.module.se>
     </properties>
     <prerequisites>
         <maven>${jm.maven.version}</maven>
@@ -46,10 +46,16 @@
                 <artifactId>se</artifactId>
                 <version>${kochiu.module.se}</version>
             </dependency>
+            <dependency>
+                <groupId>com.sztx.commons</groupId>
+                <artifactId>commons-httpclient</artifactId>
+                <version>1.0.0</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <!-- Build Settings -->
     <build>
+        <defaultGoal>compile</defaultGoal>
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -194,6 +200,13 @@
                         <effort>Default</effort>
                         <findbugsXmlOutput>true</findbugsXmlOutput>
                         <xmlOutput>true</xmlOutput>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <configuration>
+                        <skip>true</skip>
                     </configuration>
                 </plugin>
             </plugins>
